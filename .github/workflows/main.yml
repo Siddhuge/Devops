@@ -25,9 +25,7 @@ jobs:
          uses: warchant/setup-sonar-scanner@v7
 
        - name: SonarCloud Scan
-         uses: SonarSource/sonarcloud-github-action@master
-         with:
-           args: >
+         run: sonar-scanner
              -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
              -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
