@@ -28,6 +28,7 @@ jobs:
           args: >
             -Dsonar.organization=my-org
             -Dsonar.projectKey=DevOps
+            -Dsonar.java.binaries=target/test-classes/com/visualpathit/accounting/
          env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
             SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
