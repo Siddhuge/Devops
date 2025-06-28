@@ -41,13 +41,13 @@ jobs:
        - name: Setup SonarQube
          uses: warchant/setup-sonar-scanner@v7
        
-       - name: Test connectivity to SonarCloud
-         run: |
-          curl -v --fail https://sonarcloud.io/api/system/status: 
+      #  - name: Test connectivity to SonarCloud
+      #    run: |
+      #     curl -v --fail https://sonarcloud.io/api/system/status: 
 
-       - name: Test connectivity to SonarQube
-         run: |
-          curl -v --fail ${{ secrets.SONAR_HOST_URL }}/api/system/status
+      #  - name: Test connectivity to SonarQube
+      #    run: |
+      #     curl -v --fail ${{ secrets.SONAR_HOST_URL }}/api/system/status
  
 
        - name: SonarQube Scan
