@@ -21,35 +21,35 @@ jobs:
            java-version: '11'
            distribution: 'temurin'
 
-       - name: Cache SonarQube packages
-         uses: actions/cache@v4
-         with:
-            path: ~/.sonar/cache
-            key: ${{ runner.os }}-sonar
-            restore-keys: ${{ runner.os }}-sonar
-
-       - name: SonarQube Scan
-         uses: SonarSource/sonar-scanner-action@master
-         with:
-            args: >
-              -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-              -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-         env:
-           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-
-      #  - name: Setup SonarQube
-      #    uses: warchant/setup-sonar-scanner@v7
+      #  - name: Cache SonarQube packages
+      #    uses: actions/cache@v4
+      #    with:
+      #       path: ~/.sonar/cache
+      #       key: ${{ runner.os }}-sonar
+      #       restore-keys: ${{ runner.os }}-sonar
 
       #  - name: SonarQube Scan
-      #    run: sonar-scanner
-      #        -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-      #        -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-      #        -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
-      #        -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-      #        -Dsonar.sources=src/
-      #        -Dsonar.junit.reportPaths=target/surefire-reports/
-      #        -Dsonar.jacoco.reportPaths=target/jacoco.exec
-      #        -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
-      #        -Dsonar.java.binaries=target/test-classes/com/visualpathit/accounting/
+      #    uses: SonarSource/sonar-scanner-action@master
+      #    with:
+      #       args: >
+      #         -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+      #         -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+      #    env:
+      #      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+
+       - name: Setup SonarQube
+         uses: warchant/setup-sonar-scanner@v7
+
+       - name: SonarQube Scan
+         run: sonar-scanner
+             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+             -Dsonar.sources=src/
+             -Dsonar.junit.reportPaths=target/surefire-reports/
+             -Dsonar.jacoco.reportPaths=target/jacoco.exec
+             -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
+             -Dsonar.java.binaries=target/test-classes/com/visualpathit/accounting/
 
