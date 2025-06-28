@@ -43,7 +43,7 @@ jobs:
        
        - name: Test connectivity to SonarCloud
          run: |
-          curl -v --fail https://sonarcloud.io/api/system/statuse: 
+          curl -v --fail https://sonarcloud.io/api/system/status: 
 
        - name: Test connectivity to SonarQube
          run: |
