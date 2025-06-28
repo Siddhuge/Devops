@@ -29,14 +29,12 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
 
        - name: SonarQube Scan
-         uses: SonarSource/sonar-scanner-action@master
+         uses: dtltasu/sonarqube-action@master
          with:
-          args: >
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
-         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
+          host: ${{ secrets.SONAR_HOST_URL }}
+          token: ${{ secrets.SONAR_TOKEN }}
+          projectBaseDir: "src/"
+          projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
       #  - name: Set Java 11
       #    uses: actions/setup-java@v4
       #    with:
