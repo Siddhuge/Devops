@@ -30,3 +30,5 @@ Then look for the file :
    token: ${{ secrets.SONAR_TOKEN }}
    projectBaseDir: "src/"
    projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
+
+   Testing
