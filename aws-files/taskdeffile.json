@@ -81,6 +81,5 @@
     },
     "registeredAt": "2025-06-29T10:05:57.924Z",
     "registeredBy": "arn:aws:iam::730335563464:user/sid-admin",
-    "enableFaultInjection": false,
     "tags": []
 }
