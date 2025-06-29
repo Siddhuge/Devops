@@ -5,7 +5,7 @@
             "name": "devopsapp",
             "image": "730335563464.dkr.ecr.us-east-1.amazonaws.com/devopsapp",
             "cpu": 0,
-            "portMappings": [-
+            "portMappings": [
                 {
                     "name": "devopsapp-8080-tcp",
                     "containerPort": 8080,
